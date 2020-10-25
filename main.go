@@ -50,6 +50,48 @@ func practiceFunc4() string {
 	return "제가 제일 마지막이겠군요"
 }
 
+func practiceFunc5(numbers ...int) int {
+	total := 0
+	for number := range numbers {
+		fmt.Println(number)
+	}
+
+	for index, value := range numbers { // range는 오직 for만
+		fmt.Println(index, value)
+	}
+
+	// 인덱스를 쓰고 싶지 않을경우
+
+	for _, value := range numbers {
+		total += value
+	}
+
+	for i := 0; i < len(numbers); i++ {
+		fmt.Println(numbers[i])
+	}
+
+	return total
+
+}
+func practiceFunc6(age int) bool {
+	// return 값으로 여러개를 할 수 있다.
+
+	// return 타입 지정시 반환되는 변수명도 지정할 수 있다.
+	// 마지막에 리턴할때 리턴변수를 명시하지 않아도 됨.
+	// if age > 18 {
+	// 	return true
+	// }
+	// return false
+
+	// 이렇게 쓰면 이사람이 if문에서만 이 변수를 쓰겠다라는걸 알 수 있음
+	// koreanAge := age + 2 와 용도는 같음
+	if koreanAge := age + 2; koreanAge > 18 {
+		return true
+	}
+	return false
+
+}
+
 func main() {
 
 	const coding string = "어렵다"
@@ -82,5 +124,8 @@ func main() {
 	// 저는 제일 첫번째로 출력될거 같아요
 	// 저의 순서가 궁금합니다.
 	// 제가 제일 마지막이겠군요.
+	fmt.Println(practiceFunc5(1, 2, 3, 4, 5))
+
+	fmt.Println(practiceFunc6(19))
 
 }
